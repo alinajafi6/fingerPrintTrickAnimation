@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finger Print</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: consolas;
+        }
+
+        body {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #292929;
+        }
+
+        .scan {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .scan>.finger {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-image: url('img/kindpng_1153988.png');
+            background-size: 300px;
+            background-repeat: no-repeat;
+        }
+
+        .finger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/finger2.png');
+            background-size: 300px;
+            animation: para1 4s ease-in-out infinite;
+            background-repeat: no-repeat;
+        }
+
+        @keyframes para1 {
+            0%,100% {
+                height: 0%;
+            }
+            50% {
+                height: 100%;
+            }
+            
+        }
+
+        .finger::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            height: 8px;
+            background-color: #01b3fd;
+            animation: para2 4s ease-in-out infinite;
+        }
+
+        @keyframes para2 {
+            0%,100% {
+                top: 0;
+            }
+            50% {
+                top: 100%;
+            }
+            
+        }
+
+        .scan h3 {
+            color: #09fd01;
+            position: absolute;
+            top: calc(100% + 50px);
+            font-size: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="scan">
+        <div class="finger"></div>
+        <h3>Scanning...</h3>
+    </div>
+</body>
+</html>
